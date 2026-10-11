@@ -6,6 +6,9 @@
   <title>Vanilla Machines</title>
   <meta name="description" content="Vanilla Machines">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&display=swap">
   <style>
     :root {
       --red: #FF0000;
@@ -15,6 +18,7 @@
       --slide: 0.8s;
       --drop-start: 3.5s;
       --drop: 1.5s;
+      --badge-start: 5s;
     }
     * { box-sizing: border-box; margin: 0; }
     html, body { height: 100%; }
@@ -30,6 +34,24 @@
     /* SVG user units: the wave's centre sits 177 units left of the logo's centre */
     .wave { animation: wave-slide var(--slide) cubic-bezier(.65,0,.35,1) var(--slide-start) both; }
     .word { fill: #222; transform-box: fill-box; transform-origin: 0% 100%; animation: drop-in var(--drop) linear var(--drop-start) both; }
+    .badge {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #222;
+      font: 500 13px/1 "DIN Condensed", "Barlow Condensed", sans-serif;
+      letter-spacing: 0.06em;
+      animation: fade-in 0.8s ease-out var(--badge-start) both;
+    }
+    .badge svg { width: 13px; height: 13px; flex: none; }
+    .badge span { padding-top: 2px; }
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
     @keyframes bg-reveal {
       from { background-color: var(--red); }
       to   { background-color: var(--white); }
@@ -51,7 +73,7 @@
       100% { transform: none; opacity: 1; }
     }
     @media (prefers-reduced-motion: reduce) {
-      body, .wave, .word { animation: none; }
+      body, .wave, .word, .badge { animation: none; }
     }
   </style>
 </head>
@@ -91,5 +113,9 @@
             </g></g>
     </g>
   </svg>
+  <div class="badge">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="4" fill="#FF0000"/><path fill="#fff" d="M13 6h6v7h7v6h-7v7h-6v-7H6v-6h7z"/></svg>
+    <span>SWISS ENGINEERING</span>
+  </div>
 </body>
 </html>
