@@ -30,7 +30,7 @@
     .logo { width: min(560px, 85vw); height: auto; overflow: visible; }
     /* SVG user units: the wave's centre sits 177 units left of the logo's centre */
     .wave { animation: wave-slide var(--slide) cubic-bezier(.65,0,.35,1) var(--slide-start) both; }
-    .word { fill: #222; transform-box: fill-box; transform-origin: 0% 100%; animation: drop-in var(--drop) linear var(--drop-start) both; }
+    .word { fill: #222; animation: drop-in var(--drop) linear var(--drop-start) both; }
     .badge {
       position: fixed;
       right: 16px;
@@ -53,15 +53,12 @@
       to   { transform: translateX(0); }
     }
     @keyframes drop-in {
-      0%   { transform: translateY(-260px) scaleY(1.2);  opacity: 0; animation-timing-function: cubic-bezier(.55,0,1,.45); }
+      0%   { transform: translateY(-260px); opacity: 0; animation-timing-function: cubic-bezier(.5,0,1,.6); }
       30%  { opacity: 1; }
-      38%  { transform: translateY(0)      scaleY(1.08); animation-timing-function: ease-out; }
-      46%  { transform: translateY(0)      scaleY(0.75);  animation-timing-function: ease-in-out; }
-      58%  { transform: translateY(-46px)  scaleY(1.14);  animation-timing-function: cubic-bezier(.55,0,1,.45); }
-      67%  { transform: translateY(0)      scaleY(0.88);  animation-timing-function: ease-in-out; }
-      76%  { transform: translateY(-14px)  scaleY(1.05); animation-timing-function: cubic-bezier(.55,0,1,.45); }
-      84%  { transform: translateY(0)      scaleY(0.96); animation-timing-function: ease-in-out; }
-      92%  { transform: translateY(0)      scaleY(1.01); }
+      40%  { transform: translateY(16px);   animation-timing-function: cubic-bezier(.3,0,.5,1); }
+      54%  { transform: translateY(-9px);   animation-timing-function: cubic-bezier(.5,0,.5,1); }
+      68%  { transform: translateY(5px);    animation-timing-function: cubic-bezier(.5,0,.5,1); }
+      82%  { transform: translateY(-2px);   animation-timing-function: cubic-bezier(.5,0,.5,1); }
       100% { transform: none; opacity: 1; }
     }
     @media (prefers-reduced-motion: reduce) {
